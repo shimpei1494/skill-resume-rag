@@ -1,0 +1,8 @@
+# ただのインストールを実行したメモ
+pip install python-dotenv
+pip install google-generativeai
+pip install pinecone-client tiktoken
+pip install openai
+pip install streamlit
+pip install openpyxl
+pip install tabulate
