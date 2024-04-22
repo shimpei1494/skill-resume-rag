@@ -1,4 +1,5 @@
 import streamlit as st
+from service.gemini_answer import gemini_answer
 
 st.title("RAG test")
 
@@ -16,6 +17,6 @@ if prompt:
         st.markdown(prompt)
 
     with st.chat_message("assistant"):
-        response = "こんにちは"
+        response = gemini_answer(prompt)
         # response = selected_option
         st.markdown(response)

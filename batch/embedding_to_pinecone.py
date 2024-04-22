@@ -21,8 +21,13 @@ pinecone_index_name = os.environ["PINECONE_INDEX"]
 pc = Pinecone(api_key=pinecone_api_key)
 index = pc.Index(pinecone_index_name)
 
+# 設定すべきパラメータ（IDは重複するとデータ上書きされる）
+id = "数字" # 例)"1"
+filename = "技術経歴書_名前.txt"
+username = "名前"
+
 # 技術経歴書のテキストを読み込む
-file_path = "skill_sheet/text/技術経歴書_深山颯斗.txt"
+file_path = f"skill_sheet/text/{filename}"
 with open(file_path, "r", encoding="utf-8") as file:
     text_content = file.read()
 
@@ -40,9 +45,9 @@ embedding_vector = response.data[0].embedding
 index.upsert(
     vectors=[
         {
-            "id": "7",
+            "id": id,
             "values": embedding_vector,
-            "metadata": {"filename": "技術経歴書_深山颯斗.txt", "username": "技術経歴書_深山颯斗.txt"}
+            "metadata": {"filename": filename, "username": username}
         }
     ]
 )
