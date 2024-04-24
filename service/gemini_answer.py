@@ -17,7 +17,7 @@ def gemini_answer(input: str):
     # 検索
     search_result = query_search_pinecone(vector_list)
     # 技術経歴書のテキストを読み込む
-    text_content = "# 指示\n以下の参考情報を参考に質問内容に答えてください。参考情報には名前とその人のエンジニアとしての経歴が書かれています。\n"
+    text_content = "# 指示\n以下の参考情報を参考に質問内容に答えてください。参考情報には名前とその人のエンジニアとしての経歴が書かれています。質問内容に関係のない人の情報は答える必要はありません。\n"
     text_content += "# 参考情報\n"
     for person in search_result:
         file_path = f"skill_sheet/text/{person['metadata']['filename']}"

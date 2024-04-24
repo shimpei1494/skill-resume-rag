@@ -11,7 +11,7 @@ def query_search_pinecone(vector: list):
 
     result = index.query(
         vector=vector,
-        top_k=3, # 3件まで取得
+        top_k=4, # 4件まで取得
         include_values=False, # values(ベクトル値)を含めるか
         include_metadata=True # metadataを含めるか
     )
