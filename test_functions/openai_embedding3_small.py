@@ -18,7 +18,7 @@ def get_embedding(text):
         input=text,
         dimensions=512
     )
-    return response
+    return response.data[0].embedding
 
 # テキストをEmbeddingに変換
 text = "こんにちは、ChatGPT!"
@@ -26,4 +26,4 @@ embedding_result = get_embedding(text)
 print("出力結果")
 print(embedding_result)
 print("次元数")
-print(len(embedding_result["data"][0]["embedding"]))
+print(len(embedding_result))
